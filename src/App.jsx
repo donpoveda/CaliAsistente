@@ -1,34 +1,59 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { AuthProvider } from './context/AuthContext';
 import Header from './components/Header';
 import CategoryFilter from './components/CategoryFilter';
 import BusinessCard from './components/BusinessCard';
 import ProviderModal from './components/ProviderModal';
+import AuthModal from './components/AuthModal';
+import { supabase } from './lib/supabase';
 import { categories, mockProviders } from './data/providers';
 
-const App = () => {
-  const [activeCategory, setActiveCategory] = useState("Todos");
+const AppInner = () => {
+  const [activeCategory, setActiveCategory] = useState('Todos');
   const [selectedProvider, setSelectedProvider] = useState(null);
-  const [openOnReport, setOpenOnReport] = useState(false);
+  const [authModal, setAuthModal] = useState(null); // null | 'login' | 'register' | 'provider'
+  const [dbProviders, setDbProviders] = useState([]);
+  const [loadingProviders, setLoadingProviders] = useState(true);
 
-  const filteredProviders = useMemo(() => {
-    if (activeCategory === "Todos") return mockProviders;
-    return mockProviders.filter(p => p.category === activeCategory);
-  }, [activeCategory]);
+  // Load verified providers from Supabase
+  useEffect(() => {
+    const fetchProviders = async () => {
+      setLoadingProviders(true);
+      const { data, error } = await supabase
+        .from('providers')
+        .select('*')
+        .eq('verification_status', 'verified')
+        .order('thumbs_up', { ascending: false });
 
-  const handleOpenModal = (provider, mode) => {
-    setSelectedProvider(provider);
-    setOpenOnReport(mode === 'report');
-  };
+      if (!error && data && data.length > 0) setDbProviders(data);
+      setLoadingProviders(false);
+    };
+    fetchProviders();
+  }, []);
 
-  const handleCloseModal = () => {
-    setSelectedProvider(null);
-    setOpenOnReport(false);
-  };
+  // Merge: use DB providers if available, fallback to mock for development
+  const allProviders = dbProviders.length > 0 ? dbProviders.map(p => ({
+    ...p,
+    thumbsUp: p.thumbs_up,
+    thumbsDown: p.thumbs_down,
+    avatar: p.avatar_url,
+    verified: p.verification_status === 'verified',
+    reviews: [] // reviews loaded per-modal
+  })) : mockProviders;
+
+  const filteredProviders = activeCategory === 'Todos'
+    ? allProviders
+    : allProviders.filter(p => p.category === activeCategory);
 
   return (
     <div className="app-container">
-      <Header />
+      <Header
+        onOpenAuth={(tab) => setAuthModal(tab)}
+        categories={categories}
+        activeCategory={activeCategory}
+        onSelectCategory={setActiveCategory}
+      />
 
       <main>
         <CategoryFilter
@@ -37,33 +62,55 @@ const App = () => {
           onSelectCategory={setActiveCategory}
         />
 
-        <div className="providers-grid">
-          {filteredProviders.length > 0 ? (
-            filteredProviders.map((provider, index) => (
-              <div key={provider.id} style={{ animationDelay: `${index * 0.1}s` }}>
-                <BusinessCard
-                  provider={provider}
-                  onOpenModal={(mode) => handleOpenModal(provider, mode)}
-                />
+        {loadingProviders && dbProviders.length === 0 ? (
+          <div className="loading-state">
+            <div className="loading-spinner" />
+            <p>Cargando servicios...</p>
+          </div>
+        ) : (
+          <div className="providers-grid">
+            {filteredProviders.length > 0 ? (
+              filteredProviders.map((provider, index) => (
+                <div key={provider.id} style={{ animationDelay: `${index * 0.07}s` }}>
+                  <BusinessCard
+                    provider={provider}
+                    onOpenModal={(mode) => setSelectedProvider({ provider, openOnReport: mode === 'report' })}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className="no-results glass-panel">
+                <p>No se encontraron prestadores en esta categoría.</p>
               </div>
-            ))
-          ) : (
-            <div className="no-results glass-panel">
-              <p>No se encontraron prestadores de servicios en esta categoría.</p>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </main>
 
       {selectedProvider && (
         <ProviderModal
-          provider={selectedProvider}
-          openOnReport={openOnReport}
-          onClose={handleCloseModal}
+          provider={selectedProvider.provider}
+          openOnReport={selectedProvider.openOnReport}
+          onClose={() => setSelectedProvider(null)}
+          onRequireAuth={(tab) => { setSelectedProvider(null); setAuthModal(tab || 'login'); }}
+        />
+      )}
+
+      {authModal && (
+        <AuthModal
+          initialTab={authModal}
+          onClose={() => setAuthModal(null)}
         />
       )}
     </div>
   );
 };
+
+// Wrap with AuthProvider at the top
+const App = () => (
+  <AuthProvider>
+    <AppInner />
+  </AuthProvider>
+);
 
 export default App;

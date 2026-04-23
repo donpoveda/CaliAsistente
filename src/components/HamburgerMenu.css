@@ -1,0 +1,221 @@
+.hamburger-wrapper {
+  position: relative;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+
+.hamburger-btn span {
+  display: block;
+  height: 2.5px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-btn.open span:nth-child(1) {
+  transform: translateY(9.75px) rotate(45deg);
+}
+
+.hamburger-btn.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-btn.open span:nth-child(3) {
+  transform: translateY(-9.75px) rotate(-45deg);
+}
+
+/* Dropdown Menu */
+.hamburger-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 280px;
+  background: rgba(9, 28, 61, 0.98);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 18px;
+  padding: 1.25rem;
+  z-index: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hamburger-menu.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* User Area */
+.menu-user-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.menu-user-avatar {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.menu-user-name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.menu-user-role {
+  font-size: 0.78rem;
+  color: #7c92b0;
+  margin: 0;
+}
+
+/* Auth Buttons */
+.menu-auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.menu-login-btn, .menu-register-btn {
+  flex: 1;
+  padding: 0.55rem;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.menu-login-btn {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.menu-login-btn:hover { background: rgba(255,255,255,0.14); }
+
+.menu-register-btn {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.menu-register-btn:hover { background: #2563eb; }
+
+/* Divider */
+.menu-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 1rem 0;
+}
+
+/* Section label */
+.menu-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7c92b0;
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+/* Categories */
+.menu-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.menu-cat-btn {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #b0c4de;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.menu-cat-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+.menu-cat-btn.active {
+  background: rgba(29,78,216,0.3);
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+/* Actions */
+.menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-action-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  border: none;
+}
+
+.menu-action-btn.provider {
+  background: rgba(29,78,216,0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59,130,246,0.3);
+}
+
+.menu-action-btn.provider:hover { background: rgba(29,78,216,0.35); }
+
+.menu-action-btn.signout {
+  background: rgba(239,68,68,0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.menu-action-btn.signout:hover { background: rgba(239,68,68,0.2); }
+
+/* Footer */
+.menu-footer {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.menu-footer p {
+  font-size: 0.72rem;
+  color: rgba(176,196,222,0.35);
+  margin: 0.1rem 0;
+}
