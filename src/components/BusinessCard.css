@@ -1,0 +1,233 @@
+.business-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease-out backwards;
+  cursor: pointer;
+  position: relative;
+  height: 100%; /* Fill wrapper cell fully */
+  box-sizing: border-box;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 2rem; /* leave space for report btn */
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.card-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.report-icon-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: rgba(176, 196, 222, 0.4);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.report-icon-btn:hover {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  padding: 2px;
+  background: var(--glass-bg);
+}
+
+.provider-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.service-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.service-title {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  /* Fixed 3-line height so all cards align regardless of text length */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(0.92rem * 1.5 * 3);
+}
+
+.contact-info {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.contact-btn.phone {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-btn.phone:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-btn.whatsapp {
+  background: rgba(37, 211, 102, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.contact-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.3);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.rating-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.rating-badge.high { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+.rating-badge.med { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+.rating-badge.low { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+.rating-badge.new { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); }
+
+.vote-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.vote-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.vote-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vote-btn.up.active {
+  background: rgba(29, 78, 216, 0.25);
+  border-color: #3b82f6;
+}
+
+.vote-btn.down.active {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+}
+
+.rating-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.reviews-count {
+  font-size: 0.75rem;
+  color: #7c92b0;
+}
+
+.card-open-hint {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: rgba(176, 196, 222, 0.45);
+  text-align: center;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.business-card:hover .card-open-hint {
+  color: #93c5fd;
+}

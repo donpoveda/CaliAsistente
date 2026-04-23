@@ -1,0 +1,422 @@
+/* ====== OVERLAY ====== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 14, 40, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ====== MODAL BOX ====== */
+.modal-content {
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: rgba(9, 28, 61, 0.97);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== MODAL HEADER ====== */
+.modal-header {
+  padding: 1.75rem 1.75rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #c0c0c0;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.modal-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 3rem;
+}
+
+.modal-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1d4ed8;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  flex-shrink: 0;
+}
+
+.modal-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+
+.modal-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(29, 78, 216, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #93c5fd;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.modal-service {
+  color: #c0c0c0;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.modal-category-badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-description {
+  color: #b0c4de;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.modal-contact {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Keep original contact btn styles */
+.contact-btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.contact-btn.phone {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-btn.phone:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-btn.whatsapp {
+  background: rgba(37, 211, 102, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.contact-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.3);
+}
+
+/* ====== RATING ====== */
+.modal-rating {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.rating-bar-container {
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  height: 8px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #1d4ed8, #3b82f6);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.rating-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.rating-label { font-size: 0.85rem; font-weight: 700; }
+.rating-label.high { color: #4ade80; }
+.rating-label.med { color: #fbbf24; }
+.rating-label.low { color: #f87171; }
+
+.vote-total { color: #b0c4de; font-size: 0.82rem; }
+
+.vote-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+}
+
+.vote-count { font-weight: 600; }
+
+.vote-btn:hover { background: rgba(255,255,255,0.12); }
+.vote-btn.up.active { background: rgba(29, 78, 216, 0.3); border-color: #3b82f6; }
+.vote-btn.down.active { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
+
+/* ====== REVIEWS ====== */
+.modal-reviews-section {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.reviews-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c0c0c0;
+  margin-bottom: 1rem;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.review-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: background 0.2s;
+}
+
+.review-card:hover {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.review-author-avatar {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.review-meta {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-author {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.review-date {
+  color: #7c92b0;
+  font-size: 0.78rem;
+}
+
+.review-vote-icon {
+  font-size: 1.1rem;
+}
+
+.review-text {
+  color: #b0c4de;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.no-reviews {
+  color: #7c92b0;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* ====== REPORT ====== */
+.modal-report-section {
+  padding: 1rem 1.75rem 1.5rem;
+}
+
+.report-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  color: #7c92b0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.report-trigger-btn:hover {
+  color: #f87171;
+}
+
+.report-form {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.report-label {
+  font-size: 0.85rem;
+  color: #f87171;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.report-textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.6rem;
+  resize: none;
+  outline: none;
+  margin-bottom: 0.75rem;
+}
+
+.report-textarea:focus {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.report-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.report-cancel-btn, .report-submit-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.report-cancel-btn {
+  background: rgba(255,255,255,0.08);
+  color: #c0c0c0;
+}
+
+.report-submit-btn {
+  background: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.report-submit-btn:hover {
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.report-sent {
+  font-size: 0.85rem;
+  color: #4ade80;
+  text-align: center;
+  padding: 0.5rem;
+}

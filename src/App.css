@@ -1,0 +1,21 @@
+/* Grid Layout for Providers */
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch; /* Equal height rows */
+}
+
+/* Wrapper must fill full cell height */
+.providers-grid > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+}
