@@ -1,15 +1,21 @@
 export const categories = [
   "Todos",
-  "Plomería",
-  "Electricidad",
-  "Mensajería",
-  "Pintura",
-  "Carpintería",
-  "Mantenimiento",
-  "Jardinería",
-  "Coaching",
+  "Electricidad",      // 1. Emergencia más frecuente en hogares
+  "Plomería",          // 2. Emergencia muy frecuente
+  "Aseo & Limpieza",   // 3. Alta demanda diaria (hogares, oficinas)
+  "Domicilios",        // 4. Muy alta demanda en Cali
+  "Tecnología",        // 5. Computadores, celulares, TV
+  "Pintura",           // 6. Remodelaciones frecuentes
+  "Mantenimiento",     // 7. General (aires, calentadores, etc.)
+  "Carpintería",       // 8. Muebles y madera
+  "Mensajería",        // 9. Diligencias y envíos
+  "Mecánica",          // 10. Reparación de motos y carros
+  "Jardinería",        // 11. Conjuntos y casas
+  "Coaches & Fitness", // 12. Entrenadores personales
+  "Mudanzas",          // 13. Fletes y embalaje
   "Otro"
 ];
+
 
 export const mockProviders = [
   {
