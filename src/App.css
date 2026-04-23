@@ -42,3 +42,21 @@
   to { transform: rotate(360deg); }
 }
 
+/* Mobile responsive grid */
+@media (max-width: 768px) {
+  .providers-grid {
+    grid-template-columns: 1fr;
+  }
+  .app-container {
+    padding: 1.25rem 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .providers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+

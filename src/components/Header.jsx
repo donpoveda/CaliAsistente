@@ -3,8 +3,8 @@ import { useAuth } from '../context/AuthContext';
 import HamburgerMenu from './HamburgerMenu';
 import './Header.css';
 
-const Header = ({ onOpenAuth, categories, activeCategory, onSelectCategory }) => {
-  const { user, profile, signOut } = useAuth();
+const Header = ({ onOpenAuth, onOpenAdmin, categories, activeCategory, onSelectCategory }) => {
+  const { user, profile } = useAuth();
 
   return (
     <header className="app-header">
@@ -28,6 +28,11 @@ const Header = ({ onOpenAuth, categories, activeCategory, onSelectCategory }) =>
         <div className="nav-right">
           {user ? (
             <div className="nav-user">
+              {profile?.role === 'admin' && (
+                <button className="admin-nav-btn" onClick={onOpenAdmin} title="Panel de administración">
+                  ⚙️ Admin
+                </button>
+              )}
               <div className="nav-user-avatar">
                 {(profile?.display_name || user.email || '?').charAt(0).toUpperCase()}
               </div>
@@ -43,6 +48,7 @@ const Header = ({ onOpenAuth, categories, activeCategory, onSelectCategory }) =>
           )}
           <HamburgerMenu
             onOpenAuth={onOpenAuth}
+            onOpenAdmin={onOpenAdmin}
             categories={categories}
             activeCategory={activeCategory}
             onSelectCategory={onSelectCategory}

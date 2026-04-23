@@ -146,3 +146,48 @@
   color: #60a5fa;
   flex-shrink: 0;
 }
+
+/* Admin button in nav */
+.admin-nav-btn {
+  background: rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: #c4b5fd;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-nav-btn:hover {
+  background: rgba(139,92,246,0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .nav-auth-btns .nav-register-main {
+    display: none;
+  }
+  .nav-user-name {
+    display: none;
+  }
+  .hero-section .tagline {
+    font-size: 0.75rem;
+  }
+  .trust-quote {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .verification-notice {
+    font-size: 0.74rem;
+    padding: 0.4rem 0.75rem;
+  }
+  .hero-section {
+    margin-bottom: 1.5rem;
+  }
+}
+

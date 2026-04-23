@@ -219,3 +219,14 @@
   color: rgba(176,196,222,0.35);
   margin: 0.1rem 0;
 }
+
+.menu-action-btn.admin {
+  background: rgba(139,92,246,0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139,92,246,0.25);
+}
+
+.menu-action-btn.admin:hover {
+  background: rgba(139,92,246,0.3);
+}
+

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import './HamburgerMenu.css';
 
-const HamburgerMenu = ({ onOpenAuth, onOpenProvider, categories, activeCategory, onSelectCategory }) => {
+const HamburgerMenu = ({ onOpenAuth, onOpenAdmin, categories, activeCategory, onSelectCategory }) => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
   const { user, profile, signOut } = useAuth();
@@ -75,6 +75,11 @@ const HamburgerMenu = ({ onOpenAuth, onOpenProvider, categories, activeCategory,
 
         {/* Actions */}
         <div className="menu-actions">
+          {profile?.role === 'admin' && (
+            <button className="menu-action-btn admin" onClick={() => { onOpenAdmin && onOpenAdmin(); setOpen(false); }}>
+              ⚙️ Panel de Administración
+            </button>
+          )}
           {!user && (
             <button className="menu-action-btn provider" onClick={() => { onOpenAuth('provider'); setOpen(false); }}>
               🛠️ Registrar mi servicio
