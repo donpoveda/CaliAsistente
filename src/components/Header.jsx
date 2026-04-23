@@ -65,10 +65,8 @@ const Header = ({ onOpenAuth, onOpenAdmin, categories, activeCategory, onSelectC
               </linearGradient>
             </defs>
           </svg>
-          <div>
-            <h1 className="hero-title">CaliAsistente</h1>
-            <p className="hero-tagline">Servicios confiables para tu ciudad</p>
-          </div>
+          <h1 className="hero-title">CaliAsistente</h1>
+          <p className="hero-tagline">Servicios Confiables</p>
         </div>
 
         <p className="hero-quote">"Tu opinión construye la confianza de nuestra ciudad."</p>

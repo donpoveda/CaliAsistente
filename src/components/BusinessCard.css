@@ -2,8 +2,7 @@
 .business-card {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  padding: 1.25rem;
+  padding: 1.4rem;
   cursor: pointer;
   position: relative;
   height: 100%;
@@ -20,8 +19,8 @@
 /* Report button */
 .report-icon-btn {
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
+  top: 0.9rem;
+  right: 0.9rem;
   background: transparent;
   border: none;
   color: rgba(176,196,222,0.3);
@@ -31,111 +30,129 @@
   display: flex;
   align-items: center;
   transition: color 0.2s;
+  z-index: 1;
 }
 .report-icon-btn:hover { color: #f87171; }
 
-/* Top section */
-.card-top {
+/* Card Header */
+.card-header {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
   padding-right: 1.5rem;
 }
 
 .avatar {
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(59,130,246,0.5);
+  border: 2px solid rgba(59,130,246,0.45);
   flex-shrink: 0;
 }
 
-.card-identity {
+.header-info {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.3rem;
   min-width: 0;
 }
 
 .name-row {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .provider-name {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px;
+  max-width: 155px;
 }
 
-.verified-dot { flex-shrink: 0; }
-
-.service-title {
-  font-size: 0.82rem;
-  color: #c0c0c0;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.card-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .service-badge {
   display: inline-block;
-  padding: 0.12rem 0.55rem;
+  padding: 0.15rem 0.6rem;
   border-radius: 999px;
   background: rgba(59,130,246,0.15);
   color: #93c5fd;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   width: fit-content;
 }
 
-/* Description: 2 lines max */
+/* Card Body */
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.service-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
 .description {
   color: #b0c4de;
-  font-size: 0.87rem;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  line-height: 1.55;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: calc(0.88rem * 1.55 * 3);
   flex-grow: 1;
   margin: 0;
 }
 
-/* Contact row: icon-only buttons */
-.contact-row {
+/* Contact buttons */
+.contact-info {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  margin-top: auto;
 }
 
 .contact-btn {
   flex: 1;
   text-align: center;
-  padding: 0.5rem;
-  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+  border-radius: 9px;
   text-decoration: none;
-  font-size: 1.15rem;
-  transition: background 0.2s;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: opacity 0.2s;
+  white-space: nowrap;
 }
 
 .contact-btn.phone {
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.12);
+  color: #e2e8f0;
 }
-.contact-btn.phone:hover { background: rgba(255,255,255,0.14); }
+.contact-btn.phone:hover { background: rgba(255,255,255,0.13); }
 
 .contact-btn.whatsapp {
-  background: rgba(37,211,102,0.12);
+  background: rgba(37,211,102,0.13);
   border: 1px solid rgba(37,211,102,0.22);
+  color: #4ade80;
 }
 .contact-btn.whatsapp:hover { background: rgba(37,211,102,0.22); }
 
@@ -144,20 +161,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.75rem;
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.footer-left {
+.rating-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .rating-badge {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 6px;
 }
 .rating-badge.high { color: #4ade80; background: rgba(74,222,128,0.1); }
@@ -165,12 +183,12 @@
 .rating-badge.low  { color: #f87171; background: rgba(248,113,113,0.1); }
 .rating-badge.new  { color: #a78bfa; background: rgba(167,139,250,0.1); }
 
-.opinion-count {
+.reviews-count {
   font-size: 0.75rem;
   color: #7c92b0;
 }
 
-.vote-row { display: flex; gap: 0.35rem; }
+.vote-actions { display: flex; gap: 0.4rem; }
 
 .vote-btn {
   display: flex;
@@ -189,3 +207,18 @@
 .vote-btn:hover { background: rgba(255,255,255,0.07); }
 .vote-btn.up.active  { background: rgba(29,78,216,0.25); border-color: #3b82f6; color: #93c5fd; }
 .vote-btn.down.active { background: rgba(239,68,68,0.2); border-color: #ef4444; color: #fca5a5; }
+
+.vote-count { font-size: 0.78rem; }
+
+/* Open hint */
+.card-open-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(176,196,222,0.3);
+  margin-top: 0.75rem;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+.business-card:hover .card-open-hint {
+  color: rgba(176,196,222,0.6);
+}
