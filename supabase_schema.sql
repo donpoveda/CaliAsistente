@@ -26,12 +26,21 @@ create table if not exists public.providers (
   description text,
   phone text,
   avatar_url text,
+  -- Identity verification fields
+  cedula_number text,                -- Número de cédula colombiana
+  cedula_photo_url text,             -- Foto de la cédula (Storage)
+  selfie_url text,                   -- Selfie sosteniendo la cédula (Storage)
   verification_status text not null default 'pending', -- 'pending' | 'verified' | 'rejected'
   verification_notes text,
   thumbs_up integer default 0,
   thumbs_down integer default 0,
   created_at timestamptz default now()
 );
+
+-- ALTER for existing tables (run only if table already exists)
+alter table public.providers add column if not exists cedula_number text;
+alter table public.providers add column if not exists cedula_photo_url text;
+alter table public.providers add column if not exists selfie_url text;
 alter table public.providers enable row level security;
 create policy "Anyone can view verified providers" on public.providers for select using (verification_status = 'verified');
 create policy "Provider owners can view their own" on public.providers for select using (auth.uid() = user_id);
@@ -135,3 +144,29 @@ drop trigger if exists on_vote_change on public.votes;
 create trigger on_vote_change
   after insert or update or delete on public.votes
   for each row execute procedure public.update_provider_votes();
+
+-- =================================================================
+-- STORAGE: Bucket for verification documents
+-- Run in Supabase Dashboard → SQL Editor
+-- =================================================================
+
+-- Create private bucket for identity documents
+insert into storage.buckets (id, name, public)
+values ('verification-docs', 'verification-docs', false)
+on conflict (id) do nothing;
+
+-- Allow authenticated providers to upload their own docs
+create policy "Providers can upload verification docs"
+  on storage.objects for insert
+  with check (
+    bucket_id = 'verification-docs'
+    and auth.role() = 'authenticated'
+  );
+
+-- Only admins (service_role) can read verification docs
+create policy "Only service role can read verification docs"
+  on storage.objects for select
+  using (
+    bucket_id = 'verification-docs'
+    and auth.role() = 'service_role'
+  );

@@ -254,3 +254,114 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Identity verification section ── */
+.auth-id-hint {
+  font-size: 0.8rem;
+  color: rgba(176,196,222,0.6);
+  margin: -0.25rem 0 0.25rem;
+  line-height: 1.5;
+}
+
+.auth-upload-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.auth-upload-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.auth-upload-label span:first-child {
+  font-size: 0.82rem;
+  color: #b0c4de;
+  font-weight: 500;
+}
+
+.auth-upload-hint {
+  font-size: 0.73rem;
+  color: rgba(176,196,222,0.45);
+}
+
+/* Hide native input */
+.auth-file-input {
+  display: none;
+}
+
+.auth-upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px dashed rgba(59,130,246,0.35);
+  border-radius: 10px;
+  color: #93c5fd;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  word-break: break-all;
+}
+
+.auth-upload-btn:hover {
+  background: rgba(59,130,246,0.1);
+  border-color: rgba(59,130,246,0.6);
+}
+
+.auth-upload-btn.uploaded {
+  background: rgba(16,185,129,0.1);
+  border-color: rgba(16,185,129,0.4);
+  border-style: solid;
+  color: #6ee7b7;
+}
+
+/* Image preview */
+.file-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.file-preview-img {
+  max-height: 90px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(59,130,246,0.3);
+  object-fit: cover;
+}
+
+.file-preview-label {
+  font-size: 0.72rem;
+  color: rgba(176,196,222,0.5);
+}
+
+/* Upload progress */
+.auth-upload-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.83rem;
+  color: #93c5fd;
+  padding: 0.5rem 0;
+}
+
+.auth-progress-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(59,130,246,0.3);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
