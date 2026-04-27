@@ -27,7 +27,7 @@ export const mockProviders = [
     phone: "+573001234567",
     thumbsUp: 24,
     thumbsDown: 1,
-    avatar: "https://i.pravatar.cc/150?u=carlos",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     verified: true,
     reviews: [
       { author: "María López", date: "12 abr 2026", text: "Excelente servicio, llegó puntual y resolvió la fuga en menos de una hora. 100% recomendado.", vote: "up" },
@@ -44,7 +44,7 @@ export const mockProviders = [
     phone: "+573109876543",
     thumbsUp: 56,
     thumbsDown: 2,
-    avatar: "https://i.pravatar.cc/150?u=marta",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     verified: true,
     reviews: [
       { author: "Empresa ABC", date: "20 abr 2026", text: "Confiable y muy rápida. Lleva nuestros documentos todos los viernes sin falta.", vote: "up" },
@@ -62,7 +62,7 @@ export const mockProviders = [
     phone: "+573151112233",
     thumbsUp: 45,
     thumbsDown: 5,
-    avatar: "https://i.pravatar.cc/150?u=luis",
+    avatar: "https://randomuser.me/api/portraits/men/55.jpg",
     verified: true,
     reviews: [
       { author: "Sara Henao", date: "18 abr 2026", text: "Resolvió el corto eléctrico que nadie más podía encontrar. Muy profesional.", vote: "up" },
@@ -79,7 +79,7 @@ export const mockProviders = [
     phone: "+573205556677",
     thumbsUp: 89,
     thumbsDown: 0,
-    avatar: "https://i.pravatar.cc/150?u=andrea",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     verified: true,
     reviews: [
       { author: "Valentina Cruz", date: "21 abr 2026", text: "¡Cambió mi vida! En 3 meses bajé 8kg y me siento con una energía increíble.", vote: "up" },
@@ -97,7 +97,7 @@ export const mockProviders = [
     phone: "+573189998877",
     thumbsUp: 112,
     thumbsDown: 14,
-    avatar: "https://i.pravatar.cc/150?u=taller",
+    avatar: "https://randomuser.me/api/portraits/men/11.jpg",
     verified: true,
     reviews: [
       { author: "Nicolas Reyes", date: "19 abr 2026", text: "Recuperaron todos mis datos de un disco duro dañado. ¡Salvaron mi tesis!", vote: "up" },
@@ -115,7 +115,7 @@ export const mockProviders = [
     phone: "+573167771234",
     thumbsUp: 15,
     thumbsDown: 0,
-    avatar: "https://i.pravatar.cc/150?u=jorge",
+    avatar: "https://randomuser.me/api/portraits/men/82.jpg",
     verified: true,
     reviews: [
       { author: "Almacén Ferretero", date: "11 abr 2026", text: "Pintó la fachada del local, quedó espectacular. Muy limpio en su trabajo.", vote: "up" },
@@ -131,7 +131,7 @@ export const mockProviders = [
     phone: "+573214445566",
     thumbsUp: 41,
     thumbsDown: 3,
-    avatar: "https://i.pravatar.cc/150?u=efrain",
+    avatar: "https://randomuser.me/api/portraits/men/66.jpg",
     verified: true,
     reviews: [
       { author: "Claudia B.", date: "17 abr 2026", text: "El clóset quedó exactamente como lo quería. Calidad excelente.", vote: "up" },
@@ -148,7 +148,7 @@ export const mockProviders = [
     phone: "+573007778899",
     thumbsUp: 33,
     thumbsDown: 1,
-    avatar: "https://i.pravatar.cc/150?u=caliverde",
+    avatar: "https://randomuser.me/api/portraits/men/43.jpg",
     verified: true,
     reviews: [
       { author: "Conjunto Nogales", date: "19 abr 2026", text: "Manejan las zonas verdes del conjunto. Siempre puntuales y el jardín siempre impecable.", vote: "up" },
