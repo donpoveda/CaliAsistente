@@ -66,10 +66,10 @@ const Header = ({ onOpenAuth, onOpenAdmin, categories, activeCategory, onSelectC
             </defs>
           </svg>
           <h1 className="hero-title">CaliAsistente</h1>
-          <p className="hero-tagline">Servicios Confiables</p>
+          <p className="hero-tagline">El asistente para tus tareas del hogar</p>
         </div>
 
-        <p className="hero-quote">"Tu opinión construye la confianza de nuestra ciudad."</p>
+        <p className="hero-quote">Expertos de confianza a un clic.</p>
 
         <div className="hero-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
